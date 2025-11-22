@@ -1,0 +1,136 @@
+/* style.css - Estilo para relatório de laboratório */
+
+/* Reset simples */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tipografia e fundo */
+:root{
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0f766e; /* tom esverdeado-azulado */
+  --accent-2: #134e4a;
+  --paper: #fbfbfc;
+  --glass: rgba(255,255,255,0.6);
+}
+
+html,body{
+  height: 100%;
+  font-family: "Georgia", Cambria, "Times New Roman", Times, serif;
+  background: linear-gradient(180deg, var(--bg), #ffffff 40%);
+  color: #111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
+  padding: 2rem;
+}
+
+/* Container principal */
+main{
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--paper), var(--card));
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Seções (cada bloco) */
+main section{
+  margin-bottom: 20px;
+}
+
+/* Cartões internos (usamos as classes Primeiro/Segundo/Terceiro) */
+main section > div {
+  background: var(--card);
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(19,78,74,0.06);
+  box-shadow: 0 4px 14px rgba(16,24,40,0.04);
+}
+
+/* Cabeçalhos */
+h1{
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  color: var(--accent-2);
+  letter-spacing: -0.3px;
+}
+
+h2{
+  font-size: 1rem;
+  margin: 12px 0 8px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Parágrafos e texto forte */
+p{
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-size: 0.98rem;
+}
+
+p strong{
+  color: #0b5e57;
+}
+
+/* Listas */
+ul{
+  margin-left: 1.05rem;
+  margin-bottom: 10px;
+  padding-left: 0.6rem;
+  list-style-type: disc;
+}
+
+ul li{
+  margin: 8px 0;
+  padding-left: 6px;
+  color: #111827;
+  font-size: 0.98rem;
+}
+
+/* Pequeno destaque visual para observações */
+p > strong + span,
+p > strong + em {
+  display:block;
+}
+
+/* Repetições / observações em caixa */
+.observacao{
+  background: linear-gradient(90deg, rgba(15,118,110,0.06), rgba(19,78,74,0.03));
+  border-left: 4px solid var(--accent);
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Estilo específico para os blocos (opcional) */
+.Primeiro { border-left: 6px solid #0ea5a4; }
+.Segundo  { border-left: 6px solid #7c3aed; }
+.Terceiro { border-left: 6px solid #0ea5a4; }
+
+/* Responsividade */
+@media (max-width: 720px){
+  body { padding: 1rem; }
+  main { padding: 16px; }
+  h1 { font-size: 1.05rem; }
+  h2 { font-size: 0.95rem; }
+  ul { margin-left: 0.85rem; }
+}
+
+/* Estilo para impressão */
+@media print{
+  html,body { background: white; color: black; }
+  main { box-shadow: none; border: none; max-width: 100%; margin: 0; padding: 0; }
+  /* quebrou página entre seções se quiser (descomente) */
+  /* main section { page-break-inside: avoid; page-break-after: always; } */
+  a, button { display: none; }
+}
